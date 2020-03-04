@@ -1,0 +1,7 @@
+Write-Host "Turning off security warnings for installation files"
+Unblock-File -Path "{{pkg.path}}"\src\VSCodeSetup-x64-${pkg.version}.exe
+
+Write-Host "Installing VS Code"
+Write-Host "Set Flag"
+
+Start-Process "{{pkg.path}}\src\VSCodeSetup-x64-${pkg.version}.exe" -Wait -ArgumentList "/VERYSILENT /MERGETASKS=!runcode"
